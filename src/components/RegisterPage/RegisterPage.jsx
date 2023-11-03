@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-// import { registerUser } from 'API/register';
 import { RegisterForm } from './RegisterForm/RegisterForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { registrationThunk } from 'store/users/thunks';

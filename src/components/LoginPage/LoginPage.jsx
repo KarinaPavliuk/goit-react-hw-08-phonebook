@@ -1,38 +1,25 @@
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import LoginForm from './LoginForm/LoginForm';
+import { loginThunk } from 'store/users/thunks';
+import { authSelector } from 'store/users/selectors';
+import { useEffect } from 'react';
+
 const LoginPage = () => {
-  const submitHandler = e => {
-    e.preventDefault();
-    // const user = await loginUser(loginDetails);
-    // setUser(user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isAuth = useSelector(authSelector);
+
+  const login = body => {
+    dispatch(loginThunk(body));
   };
-  return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            // value={loginDetails.email}
-            autoComplete="username"
-            required
-          />
-        </label>
-        <br></br>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            // value={loginDetails.password}
-            autoComplete="current-password"
-            required
-          />
-        </label>
-        <button type="submit"> Login </button>
-      </form>
-      {/* {user && <Navigate to="/dashboard" state={user} replace={true} />} */}
-    </div>
-  );
+
+  useEffect(() => {
+    isAuth && navigate('/contacts');
+  }, [isAuth, navigate]);
+
+  return <LoginForm login={login} />;
 };
 
 export default LoginPage;

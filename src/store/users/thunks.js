@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { signUp, signIn, logOut } from 'API/authorizations';
-// import { refresh, signIn, signUp, updateProfile } from '../../api/auth';
 
 export const registrationThunk = createAsyncThunk(
   'users/signup',
@@ -28,9 +27,9 @@ export const loginThunk = createAsyncThunk(
 
 export const logOutThunk = createAsyncThunk(
   'users/logout',
-  async (body, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const data = await logOut(body);
+      const data = await logOut();
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -38,26 +37,11 @@ export const logOutThunk = createAsyncThunk(
   }
 );
 
-// export const refreshThunk = createAsyncThunk(
-//   'auth/refresh',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const data = await refresh();
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
+// const postLogOut = async (_, thunkAPI) => {
+//   try {
+//     await axios.post('/users/logout');
+//     clearAuthHeader();
+//   } catch (e) {
+//     return thunkAPI.rejectWithValue(e.message);
 //   }
-// );
-
-// export const updateProfileThunk = createAsyncThunk(
-//   'users/updateProfile',
-//   async (body, { rejectWithValue }) => {
-//     try {
-//       const data = await updateProfile(body);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );
+// };
