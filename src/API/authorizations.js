@@ -20,6 +20,7 @@ export const signUp = async body => {
 
 export const signIn = async body => {
   const { data } = await instance.post('users/login', body);
+  console.log(data.token);
   setToken(data.token);
   return data;
 };
