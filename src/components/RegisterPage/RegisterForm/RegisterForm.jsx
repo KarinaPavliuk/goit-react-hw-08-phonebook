@@ -1,11 +1,11 @@
-export const RegisterForm = ({ registration }) => {
+const RegisterForm = ({ registration }) => {
   // const changeHandler = e => {
   //   const { name, value } = e.target;
   //   console.log(name, value);
   //   // setLoginDetails(loginDetails => ({ ...loginDetails, [name]: value }));
   // };
 
-  const submitHandler = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const { name, email, password } = e.target.elements;
     registration({
@@ -18,7 +18,7 @@ export const RegisterForm = ({ registration }) => {
   };
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit}>
         <label>
           Name:
           <input
@@ -72,3 +72,5 @@ export const RegisterForm = ({ registration }) => {
     </div>
   );
 };
+
+export default RegisterForm;

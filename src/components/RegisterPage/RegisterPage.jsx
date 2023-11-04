@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { RegisterForm } from './RegisterForm/RegisterForm';
+import RegisterForm from './RegisterForm/RegisterForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { registrationThunk } from 'store/users/thunks';
 import { authSelector } from 'store/users/selectors';

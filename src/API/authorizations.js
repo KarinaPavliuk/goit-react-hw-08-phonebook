@@ -8,7 +8,7 @@ export const setToken = token => {
   instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
-const clearAuthHeader = () => {
+const deleteToken = () => {
   instance.defaults.headers.common.Authorization = '';
 };
 
@@ -26,7 +26,7 @@ export const signIn = async body => {
 
 export const logOut = async () => {
   const { data } = await instance.post('users/logout');
-  clearAuthHeader();
+  deleteToken();
   // setToken(data.token);
   return data;
 };
