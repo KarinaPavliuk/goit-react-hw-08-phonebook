@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const LoginForm = ({ login }) => {
   const handleSubmit = e => {
@@ -11,11 +11,11 @@ const LoginForm = ({ login }) => {
   };
   return (
     <div>
-      <Link to="/">Back to home</Link>
+      {/* <Link to="/">Back to home</Link> */}
 
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="exampleInputEmail1">Email address</label>
+          <label htmlFor="exampleInputEmail1">Email</label>
           <input
             type="email"
             name="email"
@@ -23,9 +23,9 @@ const LoginForm = ({ login }) => {
             autoComplete="username"
             aria-describedby="emailHelp"
           />
-          <div id="emailHelp">
+          {/* <div id="emailHelp">
             We'll never share your email with anyone else.
-          </div>
+          </div> */}
         </div>
         <div>
           <label htmlFor="exampleInputPassword1">Password</label>
@@ -38,7 +38,7 @@ const LoginForm = ({ login }) => {
         </div>
         <button type="submit">Login</button>
       </form>
-      <Link to="/register">Registration</Link>
+      {/* <Link to="/register">Registration</Link> */}
     </div>
   );
 };

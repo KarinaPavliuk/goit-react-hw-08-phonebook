@@ -18,11 +18,10 @@ export const Layout = () => {
       <div>
         <NavLink to="/">Home</NavLink>
         <br></br>
-        <NavLink to="register">Sign up</NavLink>
-        <br></br>
-        <NavLink to="login">Sign in</NavLink>
-        <br></br>
-        <NavLink to="contacts">Contacts</NavLink>
+        <NavLink to="menu">UserMenu</NavLink>
+        {/* <NavLink to="register">Sign up</NavLink> */}
+        {/* <NavLink to="login">Sign in</NavLink> */}
+        {/* <NavLink to="contacts">Contacts</NavLink> */}
       </div>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
