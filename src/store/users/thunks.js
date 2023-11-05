@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { signUp, signIn, logOut } from 'API/authorizations';
+import { signUp, signIn, logOut, currentUser } from 'API/authorizations';
 
 export const registrationThunk = createAsyncThunk(
   'users/signup',
@@ -18,7 +18,6 @@ export const loginThunk = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const data = await signIn(body);
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -38,11 +37,21 @@ export const logOutThunk = createAsyncThunk(
   }
 );
 
-// const postLogOut = async (_, thunkAPI) => {
-//   try {
-//     await axios.post('/users/logout');
-//     clearAuthHeader();
-//   } catch (e) {
-//     return thunkAPI.rejectWithValue(e.message);
-//   }
-// };
+export const getUserThunk = createAsyncThunk(
+  'users/data',
+  async (_, { thunkAPI }) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      const { data } = await currentUser(persistedToken);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);

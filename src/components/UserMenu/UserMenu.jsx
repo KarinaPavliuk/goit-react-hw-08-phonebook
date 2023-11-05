@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import { LogOut } from 'components/ContactsPage/LogOut/LogOut';
-// import { authSelector } from 'store/users/selectors';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { profileSelector } from 'store/users/selectors';
 
 const UserMenu = () => {
-  // const isAuth = useSelector(authSelector);
+  const userEmail = useSelector(profileSelector);
 
   return (
     <>
       UserMenu
       <div>
-        <p>email</p>
+        <p>{userEmail}</p>
         <Link to="/contacts">Contacts</Link>
         <br></br>
         <LogOut />

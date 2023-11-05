@@ -1,6 +1,5 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// import { Navigate } from 'react-router-dom';
 import { Layout } from 'Layout/Layout';
 import PrivateRoute from 'guards/PrivateRoute/PrivateRoute';
 import PublicRoute from 'guards/PublicRoute/PublicRoute';
@@ -54,5 +53,3 @@ export const App = () => {
     </Routes>
   );
 };
-
-//<Route path='users' element={<PrivateRoute><UsersPage /></PrivateRoute>}/>

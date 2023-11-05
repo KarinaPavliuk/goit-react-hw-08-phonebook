@@ -1,10 +1,4 @@
 const RegisterForm = ({ registration }) => {
-  // const changeHandler = e => {
-  //   const { name, value } = e.target;
-  //   console.log(name, value);
-  //   // setLoginDetails(loginDetails => ({ ...loginDetails, [name]: value }));
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
     const { name, email, password } = e.target.elements;
@@ -13,34 +7,18 @@ const RegisterForm = ({ registration }) => {
       email: email.value,
       password: password.value,
     });
-    // const user = await loginUser(loginDetails);
-    // setUser(user);
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
-          <input
-            type="text"
-            name="name"
-            // value={loginDetails.email}
-            // onChange={changeHandler}
-            autoComplete="given-name"
-            required
-          />
+          <input type="text" name="name" autoComplete="given-name" required />
         </label>
         <br></br>
         <label>
           Email:
-          <input
-            type="email"
-            name="email"
-            // value={loginDetails.email}
-            // onChange={changeHandler}
-            autoComplete="email"
-            required
-          />
+          <input type="email" name="email" autoComplete="email" required />
         </label>
         <br></br>
         <label>
@@ -48,24 +26,11 @@ const RegisterForm = ({ registration }) => {
           <input
             type="password"
             name="password"
-            // value={loginDetails.password}
-            // onChange={changeHandler}
             autoComplete="new-password"
             required
           />
         </label>
-        {/* <br></br>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="controlPassword"
-            // value={loginDetails.password}
-            onChange={changeHandler}
-            autoComplete="off"
-            required
-          />
-        </label> */}
+
         <button type="submit"> Login </button>
       </form>
       {/* <Link to="/login">Login</Link> */}

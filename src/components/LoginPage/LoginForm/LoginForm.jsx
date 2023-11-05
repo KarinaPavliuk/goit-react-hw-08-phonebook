@@ -23,9 +23,6 @@ const LoginForm = ({ login }) => {
             autoComplete="username"
             aria-describedby="emailHelp"
           />
-          {/* <div id="emailHelp">
-            We'll never share your email with anyone else.
-          </div> */}
         </div>
         <div>
           <label htmlFor="exampleInputPassword1">Password</label>

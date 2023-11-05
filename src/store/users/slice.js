@@ -4,7 +4,7 @@ import {
   registrationThunk,
   loginThunk,
   logOutThunk,
-  // updateProfileThunk,
+  getUserThunk,
 } from './thunks';
 
 const initialState = {
@@ -14,18 +14,13 @@ const initialState = {
 
 const handleAuthFulfilled = (state, { payload }) => {
   state.token = payload.token;
-  console.log(state.token);
-  state.profile = payload.user;
+  state.profile = payload.user.email;
 };
 
 const handleLogOut = (state, { payload }) => {
   state.token = '';
   state.profile = null;
 };
-
-// const handleUpdateProfileFulfilled = (state, { payload }) => {
-//   state.profile = payload;
-// };
 
 const authSlice = createSlice({
   name: 'auth',
@@ -40,9 +35,8 @@ const authSlice = createSlice({
     builder
       .addCase(registrationThunk.fulfilled, handleAuthFulfilled)
       .addCase(loginThunk.fulfilled, handleAuthFulfilled)
-      .addCase(logOutThunk.fulfilled, handleLogOut);
-    // .addCase(refreshThunk.fulfilled, handleAuthFulfilled)
-    // .addCase(updateProfileThunk.fulfilled, handleUpdateProfileFulfilled);
+      .addCase(logOutThunk.fulfilled, handleLogOut)
+      .addCase(getUserThunk.fulfilled, handleAuthFulfilled);
   },
 });
 

@@ -10,7 +10,6 @@ const Registration = () => {
   const navigate = useNavigate();
 
   const isAuth = useSelector(authSelector);
-  console.log('isAuth', isAuth);
 
   const registration = body => {
     dispatch(registrationThunk(body));
