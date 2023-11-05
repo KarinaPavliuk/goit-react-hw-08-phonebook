@@ -13,7 +13,7 @@ export const ContactForm = () => {
     evt.preventDefault();
     const form = evt.target;
     const name = form.name.value;
-    const phone = form.number.value;
+    const number = form.number.value;
 
     if (
       contacts?.find(
@@ -24,7 +24,7 @@ export const ContactForm = () => {
       // return Notify.warning(`${name} is alredy in contacts.`);
     }
 
-    dispatch(addContactThunk({ name, phone }));
+    dispatch(addContactThunk({ name, number }));
 
     form.reset();
   };
@@ -41,7 +41,7 @@ export const ContactForm = () => {
         <input
           type="text"
           name="name"
-          value={contacts.name}
+          // value={contacts.name}
           onClick={handleClick}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -51,7 +51,7 @@ export const ContactForm = () => {
         <input
           type="tel"
           name="number"
-          value={contacts.phone}
+          // value={contacts.phone}
           onClick={handleClick}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
