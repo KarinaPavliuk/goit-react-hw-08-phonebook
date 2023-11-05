@@ -7,10 +7,10 @@ export const getContactsThunk = createAsyncThunk(
     try {
       const data = await getContacts();
       console.log(data);
-      // return data;
+      return data;
     } catch (error) {
       console.log(error);
-      // return rejectWithValue(error);
+      return rejectWithValue(error);
     }
   }
 );
@@ -20,11 +20,11 @@ export const addContactThunk = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const data = await createContact(body);
-      console.log(data);
-      // return data;
+      console.log('addContactThunk', data);
+      return data;
     } catch (error) {
       console.log(error);
-      // return rejectWithValue(error);
+      return rejectWithValue(error);
     }
   }
 );
@@ -35,10 +35,10 @@ export const deleteContactThunk = createAsyncThunk(
     try {
       const data = await deleteContact(contactId);
       console.log(data);
-      // return data;
+      return data;
     } catch (error) {
       console.log(error);
-      // return rejectWithValue(error);
+      return rejectWithValue(error);
     }
   }
 );

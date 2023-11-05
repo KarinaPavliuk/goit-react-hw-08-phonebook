@@ -41,6 +41,7 @@ const contactsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getContactsThunk.fulfilled, (state, { payload }) => {
+        console.log('payload', payload);
         state.contacts.items = payload;
       })
       .addCase(addContactThunk.fulfilled, (state, { payload }) => {
