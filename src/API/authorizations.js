@@ -28,6 +28,6 @@ export const signIn = async body => {
 export const logOut = async () => {
   const { data } = await instance.post('users/logout');
   deleteToken();
-  // setToken(data.token);
+  setToken(data.token);
   return data;
 };

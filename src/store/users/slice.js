@@ -14,7 +14,13 @@ const initialState = {
 
 const handleAuthFulfilled = (state, { payload }) => {
   state.token = payload.token;
+  console.log(state.token);
   state.profile = payload.user;
+};
+
+const handleLogOut = (state, { payload }) => {
+  state.token = '';
+  state.profile = null;
 };
 
 // const handleUpdateProfileFulfilled = (state, { payload }) => {
@@ -34,7 +40,7 @@ const authSlice = createSlice({
     builder
       .addCase(registrationThunk.fulfilled, handleAuthFulfilled)
       .addCase(loginThunk.fulfilled, handleAuthFulfilled)
-      .addCase(logOutThunk.fulfilled, handleAuthFulfilled);
+      .addCase(logOutThunk.fulfilled, handleLogOut);
     // .addCase(refreshThunk.fulfilled, handleAuthFulfilled)
     // .addCase(updateProfileThunk.fulfilled, handleUpdateProfileFulfilled);
   },
