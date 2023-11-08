@@ -1,3 +1,5 @@
+import css from './RegisterForm.module.css';
+
 const RegisterForm = ({ registration }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -9,21 +11,34 @@ const RegisterForm = ({ registration }) => {
     });
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={css.container}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <label>
           Name:
-          <input type="text" name="name" autoComplete="given-name" required />
+          <input
+            className={css.input}
+            type="text"
+            name="name"
+            autoComplete="given-name"
+            required
+          />
         </label>
-        <br></br>
+
         <label>
           Email:
-          <input type="email" name="email" autoComplete="email" required />
+          <input
+            className={css.input}
+            type="email"
+            name="email"
+            autoComplete="email"
+            required
+          />
         </label>
-        <br></br>
+
         <label>
           Password:
           <input
+            className={css.input}
             type="password"
             name="password"
             autoComplete="new-password"

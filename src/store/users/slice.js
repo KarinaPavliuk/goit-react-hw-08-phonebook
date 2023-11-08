@@ -9,19 +9,16 @@ import {
 
 const initialState = {
   token: '',
-  isLogIn: false,
   profile: null,
 };
 
 const handleAuthFulfilled = (state, { payload }) => {
   state.token = payload.token;
-  state.isLogIn = true;
   state.profile = payload.user.email;
 };
 
 const handleLogOut = (state, { payload }) => {
   state.token = '';
-  state.isLogIn = false;
   state.profile = null;
 };
 

@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
+import css from './PublicPage.module.css';
 
 const PublicPage = () => {
   return (
-    <>
-      PublicPage
-      <div>
-        <br></br>
+    <ul className={css.list}>
+      <li className={css.item}>
         <Link to="/register">Sign up</Link>
-        <br></br>
+      </li>
+      <li className={css.item}>
         <Link to="/login">Sign in</Link>
-      </div>
-    </>
+      </li>
+    </ul>
   );
 };
 

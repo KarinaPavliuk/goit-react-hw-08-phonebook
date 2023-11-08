@@ -5,12 +5,12 @@ import { LogOut } from './LogOut/LogOut';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectError, selectIsLoading } from 'store/contactsPage/selectors';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const error = useSelector(selectError);
 
   useEffect(() => {
     isLoading
