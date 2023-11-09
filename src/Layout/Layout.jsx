@@ -43,6 +43,7 @@ export const Layout = () => {
                 fontSize: '46px',
                 borderRadius: '50%',
                 backgroundColor: 'hsla(225, 43%, 40%, 0.306)',
+                padding: '5px',
                 '&:hover': {
                   backgroundColor: 'hsl(225deg 43% 40% / 57%)',
                 },
@@ -57,6 +58,7 @@ export const Layout = () => {
                 fontSize: '46px',
                 borderRadius: '50%',
                 backgroundColor: 'hsla(225, 43%, 40%, 0.306)',
+                padding: '5px',
                 '&:hover': {
                   backgroundColor: 'hsl(225deg 43% 40% / 57%)',
                 },
