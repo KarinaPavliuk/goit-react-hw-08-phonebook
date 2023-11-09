@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/105.20cdbfe1.chunk.js","mappings":"4JAIA,UAJiB,WACf,OAAOA,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,CAAAC,SAAE,YACX,C","sources":["components/HomePage/HomePage.jsx"],"sourcesContent":["const HomePage = () => {\n  return <>Homepage</>;\n};\n\nexport default HomePage;\n"],"names":["_jsx","_Fragment","children"],"sourceRoot":""}
