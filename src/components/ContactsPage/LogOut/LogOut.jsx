@@ -1,6 +1,7 @@
 import { logOutThunk } from 'store/users/thunks';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import css from './LogOut.module.css';
 
 export const LogOut = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export const LogOut = () => {
 
   return (
     <>
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={handleClick} className={css.button}>
         Log out
       </button>
     </>

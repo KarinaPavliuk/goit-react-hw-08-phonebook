@@ -27,7 +27,7 @@ export const Layout = () => {
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',
-          rowGap: '150px',
+          rowGap: '100px',
         }}
       >
         <Box

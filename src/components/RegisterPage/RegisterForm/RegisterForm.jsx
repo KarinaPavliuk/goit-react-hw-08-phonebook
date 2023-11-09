@@ -12,41 +12,36 @@ const RegisterForm = ({ registration }) => {
   };
   return (
     <div className={css.container}>
+      <h2 className={css.header}>Sing up</h2>
       <form onSubmit={handleSubmit} className={css.form}>
-        <label>
-          Name:
-          <input
-            className={css.input}
-            type="text"
-            name="name"
-            autoComplete="given-name"
-            required
-          />
-        </label>
-
-        <label>
-          Email:
-          <input
-            className={css.input}
-            type="email"
-            name="email"
-            autoComplete="email"
-            required
-          />
-        </label>
-
-        <label>
-          Password:
-          <input
-            className={css.input}
-            type="password"
-            name="password"
-            autoComplete="new-password"
-            required
-          />
-        </label>
-
-        <button type="submit"> Login </button>
+        <input
+          className={css.input}
+          type="text"
+          name="name"
+          autoComplete="given-name"
+          placeholder="name"
+          required
+        />
+        <input
+          className={css.input}
+          type="email"
+          name="email"
+          autoComplete="email"
+          placeholder="email"
+          required
+        />
+        <input
+          className={css.input}
+          type="password"
+          name="password"
+          autoComplete="new-password"
+          placeholder="password"
+          required
+        />
+        <button type="submit" className={css.button}>
+          {' '}
+          Submit{' '}
+        </button>
       </form>
       {/* <Link to="/login">Login</Link> */}
     </div>

@@ -1,6 +1,6 @@
 .container {
-  height: 300px;
   width: 50%;
+  height: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@
   color: #424242;
 }
 
-.form {
+form {
   display: flex;
   flex-direction: column;
   row-gap: 10px;

@@ -1,12 +1,12 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
-import { LogOut } from './LogOut/LogOut';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectError, selectIsLoading } from 'store/contactsPage/selectors';
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import css from './ContactsPage.module.css';
 
 const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -19,13 +19,14 @@ const ContactsPage = () => {
   }, [isLoading]);
 
   return (
-    <>
+    <div className={css.container}>
       {/* {error && Notify.error(`${error}`)} */}
       <ContactForm />
-      <Filter />
-      <ContactList />
-      <LogOut />
-    </>
+      <div className={css.section}>
+        <Filter />
+        <ContactList />
+      </div>
+    </div>
   );
 };
 

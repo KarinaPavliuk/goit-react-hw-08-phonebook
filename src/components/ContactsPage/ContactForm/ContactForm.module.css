@@ -1,34 +1,22 @@
 .container {
-  height: 300px;
-  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 20px;
-  max-width: 500px;
-  margin: 0 auto;
+  height: 175px;
+  width: 30%;
+  padding: 3%;
   background-color: hsla(225, 43%, 40%, 0.306);
-  padding: 36px;
   border-radius: 15px;
-}
-
-.header {
-  color: #424242;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  width: 80%;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
 }
 
 .input {
-  height: 3em;
-  width: 100%;
+  height: 24%;
   border: 2px solid #42424298;
   border-radius: 5px;
   padding-left: 5px;
@@ -36,12 +24,14 @@
 }
 
 .button {
-  width: 50%;
-  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   border-radius: 5px;
   border: 2px solid #424242;
   background-color: #424242;
   color: white;
-  margin: 0 auto;
-  font-size: 18px;
+  margin: 0 0 0 auto;
 }

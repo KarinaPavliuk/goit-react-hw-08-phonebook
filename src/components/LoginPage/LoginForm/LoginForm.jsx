@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import css from './LoginForm.module.css';
 
 const LoginForm = ({ login }) => {
   const handleSubmit = e => {
@@ -10,30 +10,32 @@ const LoginForm = ({ login }) => {
     });
   };
   return (
-    <div>
+    <div className={css.container}>
       {/* <Link to="/">Back to home</Link> */}
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="exampleInputEmail1">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="exampleInputEmail1"
-            autoComplete="username"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <div>
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input
-            name="password"
-            type="password"
-            id="exampleInputPassword1"
-            autoComplete="current-password"
-          />
-        </div>
-        <button type="submit">Login</button>
+      <h2 className={css.header}>Sing in</h2>
+      <form onSubmit={handleSubmit} className={css.form}>
+        <input
+          type="email"
+          name="email"
+          className={css.input}
+          id="exampleInputEmail1"
+          autoComplete="username"
+          aria-describedby="emailHelp"
+          placeholder="email"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          className={css.input}
+          id="exampleInputPassword1"
+          autoComplete="current-password"
+          placeholder="password"
+          required
+        />
+        <button type="submit" className={css.button}>
+          Submit
+        </button>
       </form>
       {/* <Link to="/register">Registration</Link> */}
     </div>

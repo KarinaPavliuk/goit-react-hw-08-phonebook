@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.item {
+  display: flex;
+  column-gap: 36px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  border: 2px solid #424242;
+  background-color: #424242;
+  color: white;
+}

@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 26px;
+  margin: 0 0 0 auto;
+  background-color: hsla(225, 43%, 40%, 0.306);
+  border-radius: 15px;
+  padding: 36px;
+  font-size: 24px;
+}
+
+.link {
+  border: 2px solid #42424278;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 0 auto;
+}
