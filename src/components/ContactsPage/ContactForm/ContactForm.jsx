@@ -21,6 +21,7 @@ export const ContactForm = () => {
       )
     ) {
       alert(`${name} is alredy in contacts.`);
+      return;
     }
 
     dispatch(addContactThunk({ name, number }));

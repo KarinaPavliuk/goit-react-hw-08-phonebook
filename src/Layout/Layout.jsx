@@ -5,9 +5,9 @@ import css from './Layout.module.css';
 
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
-// import Box from '@mui/material/Box';
 import { Box, ListItem } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const theme = createTheme({
   palette: {
@@ -41,6 +41,11 @@ export const Layout = () => {
               sx={{
                 color: 'primary.main',
                 fontSize: '46px',
+                borderRadius: '50%',
+                backgroundColor: 'hsla(225, 43%, 40%, 0.306)',
+                '&:hover': {
+                  backgroundColor: 'hsl(225deg 43% 40% / 57%)',
+                },
               }}
             />
           </NavLink>
@@ -50,14 +55,25 @@ export const Layout = () => {
               sx={{
                 color: 'primary.main',
                 fontSize: '46px',
+                borderRadius: '50%',
+                backgroundColor: 'hsla(225, 43%, 40%, 0.306)',
+                '&:hover': {
+                  backgroundColor: 'hsl(225deg 43% 40% / 57%)',
+                },
               }}
             />
           </NavLink>
         </Box>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={Loading.dots({
+            svgColor: 'hsl(225, 43%, 40%)',
+            backgroundColor: '#00000073',
+          })}
+        >
           <Outlet />
         </Suspense>
       </Box>
+      {Loading.remove()}
     </ThemeProvider>
   );
 };

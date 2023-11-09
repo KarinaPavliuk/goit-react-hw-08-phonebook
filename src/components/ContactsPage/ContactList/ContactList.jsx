@@ -25,7 +25,7 @@ export const ContactList = () => {
     <ul className={css.list}>
       {visibilityContacts?.map(contact => (
         <li key={contact.id} className={css.item}>
-          {contact.name} {contact.number}
+          {contact.name}: {contact.number}
           <button
             type="button"
             id={contact.id}

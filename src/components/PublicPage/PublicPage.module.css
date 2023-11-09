@@ -17,3 +17,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.item:hover {
+  background-color: hsl(225deg 43% 40% / 57%);
+}

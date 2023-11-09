@@ -15,3 +15,7 @@
   padding: 8px;
   margin: 0 auto;
 }
+
+.link:hover {
+  background-color: hsla(225, 43%, 40%, 0.306);
+}

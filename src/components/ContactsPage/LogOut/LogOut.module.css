@@ -10,3 +10,8 @@
   color: white;
   font-size: 24px;
 }
+
+.button:hover {
+  background-color: #2d2d2d;
+  border-color: #2d2d2d;
+}

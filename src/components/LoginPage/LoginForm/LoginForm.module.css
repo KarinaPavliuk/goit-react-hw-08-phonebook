@@ -45,3 +45,8 @@ form {
   margin: 0 auto;
   font-size: 18px;
 }
+
+.button:hover {
+  background-color: #2d2d2d;
+  border-color: #2d2d2d;
+}
