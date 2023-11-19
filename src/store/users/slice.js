@@ -10,6 +10,7 @@ import {
 const initialState = {
   token: '',
   profile: null,
+  isRefreshing: true,
 };
 
 const handleAuthFulfilled = (state, { payload }) => {
@@ -17,9 +18,19 @@ const handleAuthFulfilled = (state, { payload }) => {
   state.profile = payload.user.email;
 };
 
-const handleLogOut = (state, { payload }) => {
+const handleLogOut = state => {
   state.token = '';
   state.profile = null;
+};
+
+const handleGetUserFulfilled = (state, { payload }) => {
+  state.token = payload.token;
+  state.isRefreshing = false;
+};
+
+const handleGetUserRejected = (state, { payload }) => {
+  state.token = '';
+  state.isRefreshing = false;
 };
 
 const authSlice = createSlice({
@@ -36,7 +47,8 @@ const authSlice = createSlice({
       .addCase(registrationThunk.fulfilled, handleAuthFulfilled)
       .addCase(loginThunk.fulfilled, handleAuthFulfilled)
       .addCase(logOutThunk.fulfilled, handleLogOut)
-      .addCase(getUserThunk.fulfilled, handleAuthFulfilled);
+      .addCase(getUserThunk.fulfilled, handleGetUserFulfilled)
+      .addCase(getUserThunk.rejected, handleGetUserRejected);
   },
 });
 
