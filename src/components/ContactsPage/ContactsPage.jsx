@@ -13,6 +13,13 @@ const ContactsPage = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
+    if (!error) {
+      return;
+    }
+    Notify.failure(error);
+  }, [error]);
+
+  useEffect(() => {
     isLoading
       ? Loading.dots({
           svgColor: 'hsl(225, 43%, 40%)',
@@ -23,7 +30,6 @@ const ContactsPage = () => {
 
   return (
     <div className={css.container}>
-      {error && Notify.error(`${error}`)}
       <ContactForm />
       <div className={css.section}>
         <Filter />
