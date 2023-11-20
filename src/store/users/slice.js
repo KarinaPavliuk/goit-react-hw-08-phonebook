@@ -11,7 +11,7 @@ const initialState = {
   token: '',
   profile: null,
   isLogIn: false,
-  isRefreshing: true,
+  isRefreshing: false,
 };
 
 const handleAuthFulfilled = (state, { payload }) => {
@@ -26,10 +26,13 @@ const handleLogOut = state => {
   state.isLogIn = false;
 };
 
+const handleGetUserPending = (state, { payload }) => {
+  state.isRefreshing = true;
+};
+
 const handleGetUserFulfilled = (state, { payload }) => {
-  console.log('payload', payload);
   state.token = payload.token;
-  // state.profile = payload.user.email;
+  state.profile = payload.user.email;
   state.isLogIn = true;
   state.isRefreshing = false;
 };
@@ -53,6 +56,7 @@ const authSlice = createSlice({
       .addCase(registrationThunk.fulfilled, handleAuthFulfilled)
       .addCase(loginThunk.fulfilled, handleAuthFulfilled)
       .addCase(logOutThunk.fulfilled, handleLogOut)
+      .addCase(getUserThunk.pending, handleGetUserPending)
       .addCase(getUserThunk.fulfilled, handleGetUserFulfilled)
       .addCase(getUserThunk.rejected, handleGetUserRejected);
   },
