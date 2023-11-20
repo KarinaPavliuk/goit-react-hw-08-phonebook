@@ -23,9 +23,9 @@ export const handleFulfilled = state => {
   state.contacts.error = null;
 };
 
-export const handleRejected = (state, { payload }) => {
+export const handleRejected = (state, { error }) => {
   state.contacts.isLoading = false;
-  state.contacts.error = payload.message;
+  state.contacts.error = error.message;
 };
 
 const contactsSlice = createSlice({

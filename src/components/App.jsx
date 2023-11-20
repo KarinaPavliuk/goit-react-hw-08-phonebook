@@ -1,10 +1,12 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'Layout/Layout';
 import PrivateRoute from 'guards/PrivateRoute/PrivateRoute';
 import PublicRoute from 'guards/PublicRoute/PublicRoute';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// import { authSelector } from 'store/users/selectors';
 import { isRefreshingSelector } from 'store/users/selectors';
+import { getUserThunk } from 'store/users/thunks';
 
 const HomePage = lazy(() => import('components/HomePage/HomePage'));
 const PublicPage = lazy(() => import('components/PublicPage/PublicPage'));
@@ -14,15 +16,17 @@ const LoginPage = lazy(() => import('components/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('components/ContactsPage/ContactsPage'));
 
 export const App = () => {
-  //useEffect для запуску операції getUserThunk
+  const dispatch = useDispatch();
 
   const isRefreshing = useSelector(isRefreshingSelector);
 
-  if (isRefreshing) {
-    return <div>...loading</div>;
-  }
+  useEffect(() => {
+    dispatch(getUserThunk());
+  }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <div>...loading (refreshing)</div>
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
