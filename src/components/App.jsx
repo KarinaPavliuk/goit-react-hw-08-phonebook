@@ -61,7 +61,14 @@ export const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="contacts" element={<ContactsPage />} />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute>
+              <ContactsPage />
+            </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );
