@@ -10,21 +10,27 @@ import {
 const initialState = {
   token: '',
   profile: null,
+  isLogIn: false,
   isRefreshing: true,
 };
 
 const handleAuthFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.profile = payload.user.email;
+  state.isLogIn = true;
 };
 
 const handleLogOut = state => {
   state.token = '';
   state.profile = null;
+  state.isLogIn = false;
 };
 
 const handleGetUserFulfilled = (state, { payload }) => {
+  console.log('payload', payload);
   state.token = payload.token;
+  // state.profile = payload.user.email;
+  state.isLogIn = true;
   state.isRefreshing = false;
 };
 

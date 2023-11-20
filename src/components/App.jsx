@@ -4,7 +4,6 @@ import { Layout } from 'Layout/Layout';
 import PrivateRoute from 'guards/PrivateRoute/PrivateRoute';
 import PublicRoute from 'guards/PublicRoute/PublicRoute';
 import { useDispatch, useSelector } from 'react-redux';
-// import { authSelector } from 'store/users/selectors';
 import { isRefreshingSelector } from 'store/users/selectors';
 import { getUserThunk } from 'store/users/thunks';
 
@@ -25,7 +24,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>...loading (refreshing)</div>
+    <div>...loading</div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

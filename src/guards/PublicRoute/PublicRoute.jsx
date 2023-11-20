@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { authSelector } from 'store/users/selectors';
+import { isLogInSelector } from 'store/users/selectors';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PublicRoute = ({ children }) => {
-  const isAuth = useSelector(authSelector);
+  const isLogIn = useSelector(isLogInSelector);
   const location = useLocation();
 
-  return !isAuth ? children : <Navigate to={location.state ?? '/contacts'} />;
+  return isLogIn ? <Navigate to={location.state ?? '/contacts'} /> : children;
 };
 
 export default PublicRoute;
